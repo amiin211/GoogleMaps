@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Khartoum map</title>
+	<meta name="description" content="Khartoum map">
+    <meta name="author" content="Amin Adnan">
+	<style>
+	body
+	{
+	    position: relative;
+	    padding-bottom: 65.25%;
+		padding-top: 30px;
+		margin: 0 auto;
+	    height: 0;
+	}
+	#buttons
+	{
+		position: absolute;
+	    top: 100%;
+	    left: 0;
+	    width: 100% !important;
+	    height: 100% !important;
+    }
+    @media only screen and (max-width: 480px){
+        .buttons
+        {
+        	top: 0;
+            max-width:600px !important;
+            width:100% !important;
+        }
+    }
+    #map
+	{
+		position: absolute;
+	    top: 0;
+	    left: 0;
+	    width: 100% !important;
+	    height: 100% !important;
+    }
+	</style>
+	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBOl9gzEfo9yfLNiuLLf4jqdvFETsheuLs"></script>
+</head>
+<body>
+	<div id="buttons">
+		<button id ="btnTerrain" class="buttons">Terrain</button>
+		<button id ="btnRoadMap" class="buttons">Roadmap</button>
+		<button id ="btnSatellite" class="buttons">Satellite</button>
+		<button id ="btnHybrid" class="buttons">Hybrid</button>
+   </div>
+	<div id="map"></div>
+		<script>
+			function init ()
+			{
+				var mapOptions= 
+				{
+					center: new google.maps.LatLng(15.609995, 32.541453),
+					zoom: 12
+				};
+				var map = new google.maps.Map(document.getElementById('map'),
+					mapOptions);
+					addMap(map);
+			}
+
+			function addMap (map){
+				document.getElementById("btnTerrain").addEventListener('click',
+					function ()
+				{
+					map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
+				});
+				document.getElementById("btnRoadMap").addEventListener('click',
+					function ()
+				{
+					map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
+				});
+				document.getElementById("btnSatellite").addEventListener('click',
+					function ()
+				{
+					map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
+				});
+				document.getElementById("btnHybrid").addEventListener('click',
+					function ()
+				{
+					map.setMapTypeId(google.maps.MapTypeId.HYBRID);
+				});
+			}
+			google.maps.event.addDomListener(window,"load",init);
+	</script>
+</html>
