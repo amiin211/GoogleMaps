@@ -6,8 +6,41 @@
 	<title>Khartoum</title>
 	<style>
 	html {height: 100%}
-	body {height:100%;}
-	#divMap {height:100%;}
+	body
+	{
+		position: relative;
+		padding-bottom: 65.25%;
+		padding-top: 30px;
+		margin: 0 auto;
+		height: 0;
+	}
+
+	#buttons
+	{
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 100% !important;
+		height: 100% !important;
+	 }
+
+ @media only screen and (max-width: 480px){
+	 .buttons
+	 {
+		 top: 0;
+		 max-width:600px !important;
+		 width:100% !important;
+	 }
+ }
+
+	#divMap
+	{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100% !important;
+		height: 100% !important;
+	}
 	</style>
 	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBOl9gzEfo9yfLNiuLLf4jqdvFETsheuLs"></script>
 	<script>
@@ -53,10 +86,11 @@
 	</script>
 </head>
 <body>
-	<button id ="btnTerrain">Terrain</button>
-	<button id ="btnRoadMap">Roadmap</button>
-	<button id ="btnSatellite">Satellite</button>
-	<button id ="btnHybrid">Hybrid</button>
+	<div id="buttons">
+		<button id ="btnTerrain" class="buttons">Terrain</button>
+		<button id ="btnRoadMap" class="buttons">Roadmap</button>
+		<button id ="btnSatellite" class="buttons">Satellite</button>
+		<button id ="btnHybrid" class="buttons">Hybrid</button>
+	</div>
 	<div id = "divMap"></div>
-
 </html>
