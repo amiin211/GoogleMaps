@@ -21,7 +21,7 @@
 		top: 100%;
 		left: 0;
 		width: 100% !important;
-		height: 100% !important;
+		height: 30px !important;
 	 }
 
  @media only screen and (max-width: 480px){
@@ -39,7 +39,7 @@
 		top: 0;
 		left: 0;
 		width: 100% !important;
-		height: 100% !important;
+		height: 100%!important;
 	}
 	</style>
 	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBOl9gzEfo9yfLNiuLLf4jqdvFETsheuLs"></script>
@@ -57,8 +57,10 @@
 		panControl: true,
 		mapTypeControl: true,
 		mapTypeControlOptions:{
+			mapTypeIds:[ google.maps.MapTypeId.ROADMAP, google.maps.MapTypeId.HYBRID, google.maps.MapTypeId.TERRAIN, google.maps.MapTypeId.SATELLITE
+			],
 			style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
-			position:google.maps.ControlPosition.TOP_CENTER
+			//position:google.maps.ControlPosition.TOP_CENTER
 		},
 		scaleControl: true,
 		rotateControl: true,
