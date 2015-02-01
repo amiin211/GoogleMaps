@@ -47,7 +47,7 @@
 	function init (){
 		var mapOptions= {
 		center: new google.maps.LatLng(15.609995, 32.541453),
-		zoom: 12,
+		zoom: 10,
 		disableDefaultUI: true,
 		zoomControl: true,
 		zoomControlOptions: {
@@ -57,20 +57,30 @@
 		panControl: true,
 		mapTypeControl: true,
 		mapTypeControlOptions:{
-			mapTypeIds:[ google.maps.MapTypeId.ROADMAP, google.maps.MapTypeId.HYBRID, google.maps.MapTypeId.TERRAIN, google.maps.MapTypeId.SATELLITE
-			],
 			style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
-			//position:google.maps.ControlPosition.TOP_CENTER
+			position:google.maps.ControlPosition.TOP_CENTER
 		},
 		scaleControl: true,
 		rotateControl: true,
 		overviewMapControl: true
 		};
+
 		var map = new google.maps.Map(document.getElementById('divMap'),mapOptions);
 		addMap(map);
+		drawMarkers(map);
 	}
 
-	function addMap (map){
+	function  drawMarkers(map) {
+		var image = "/home/amiin/Projects/GoogleMaps/img/UOK-logo.png";
+
+		var centerMarker = new google.maps.Marker({
+			icon: image,
+			position: new google.maps.LatLng(15.609995, 32.541453),
+			map: map,
+			title: "University of Khartoum"});
+		}
+
+	function addMap(map){
 		document.getElementById("btnTerrain").addEventListener('click',function (){
 				map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
 			});
